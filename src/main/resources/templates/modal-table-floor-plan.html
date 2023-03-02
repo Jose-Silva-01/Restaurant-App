@@ -1,0 +1,23 @@
+<div>
+	<h3>Reservations at Table <span th:text="${tableNumber}"></span> on <span
+		th:text="${#dates.format(#dates.createNow(), 'dd-MMM-yyyy')}"></span> :</h3>
+	<table class="styled-table1" th:if="${resSameDate.size != 0}">
+		<tbody>
+			<tr th:each="res : ${resSameDate}">
+				<td>Res #<span th:text="${res.id}"></span></td>
+				<td th:text="${res.time}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<div th:if="${resSameDate.size == 0}">
+		No Reservations
+	</div>
+</div>
+<div class="modal-footer">
+	<div class="row">
+		<div class="col-md-12">
+		<button type="button" id="closf" class="button-6 cancelBtn" data-dismiss="modal"
+		aria-label="Close">Close</button>
+	</div>
+	</div>
+</div>
